@@ -11,10 +11,21 @@ function deleteUser(name) {
 }
 
 function findUser(name){
+    let result = false;
+
     for (let key in users){
-        let result = (users[key] === name) ? true : false;
-        return result
+        result = (users[key] === name) ? true : false;
     }
+    return result
 }
 
-export { users, countUsers, deleteUser, findUser}
+function updateUser(oldName, newName){
+    for (let key in users) {
+        console.log(users[key]);
+        if (users[key] === oldName) {
+            users[key] = newName;
+        }
+    }
+};
+
+export { users, countUsers, deleteUser, findUser, updateUser}
